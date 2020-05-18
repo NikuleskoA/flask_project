@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+     <title>Main ships page</title>
+ <style>
+body {
+background: #e6efff;
+font-family: "Gill Sans", sans-serif;
+}
+table {
+font-size: 14px;
+border-collapse: collapse;
+text-align: center;
+width:50%;
+}
+th, td:first-child {
+color: black;
+padding: 10px 20px;
+}
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: black;
+}
+th:first-child, td:first-child {
+text-align: left;
+}
+ </style>
+
+    </head>
+
+   <body>
+<h1 align="center">Справочник по судам</h1>
+      <table border = 1 align="center">
+        <tr>
+        <td> Название  </td>
+        <td> Год  </td>
+        <td> Страна </td>
+        <td> Размер </td>
+        <td> Описание </td>
+        <td> Действие </td>
+        </tr>
+
+         {% for ship in ship_list %}
+            <tr>
+                <td> {{ ship.name }} </td>
+                <td> {{ ship.country_name }} </td>
+                <td> {{ ship.built_year }} </td>
+                <td> {{ ship.length }} </td>
+                <td> {{ ship.description }} </td>
+
+                <td>
+                     <a href="{{ url_for('delete', name=ship.name) }}">удалить
+                     </a> |
+                     <a href="{{ url_for('edit', name=ship.name) }}">изменить
+                     </a>
+                  </td>
+            </tr>
+         {% endfor %}
+      </table>
+   <h4 align="center"><a href = "{{ url_for('add_ship') }}">Добавить судно</a></h4>
+
+   </body>
+</html>

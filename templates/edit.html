@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Изменить корабль</title>
+   <style>
+       body {
+           background: #e6efff;
+           font-family: "Gill Sans", sans-serif;
+       }
+   </style>
+</head>
+   <body>
+      <h3 align="center">
+         <a href = "{{ url_for('result') }}"> Главная страница </a>
+      </h3>
+      <hr/>
+<div align="center">
+      <form action = "{{ url_for('edit') }}" method = "POST">
+           <input type="hidden" name="id" value="{{ ship.id }}">
+         <label for = "name">Имя</label><br>
+         <input type = "text" name = "name" placeholder = "Name"
+         /><br>
+
+         <label for = "country">Country</label><br>
+         <select name="country">
+            {%- for country in countries %}
+               <option value="{{ country }}">
+                       {{ 'selected' if country == ship.country_name else '' }}
+                  {{ country }}
+               </option>
+
+            {%- endfor %}
+         </select>
+
+        <br>
+        <label for = "length">Длина</label><br>
+         <input type = "text" name = "length"/><br>
+
+        <label for = "width">Ширина</label><br>
+         <input type = "text" name = "width"/><br>
+
+         <label for = "description">Описание судна</label><br>
+         <textarea name = "description"
+                   placeholder = "Description of ship"
+         ></textarea><br>
+
+         <label for = "year">Год постройки</label><br>
+         <input type = "text" name = "year" placeholder = "1990"
+               /><br>
+         <input type = "submit" value = "Изменить" />
+      </form>
+   </div>
+   </body>
+</html>

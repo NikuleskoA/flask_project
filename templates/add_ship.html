@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <title>
+        Hello from Flask
+    </title>
+    <style>
+       body {
+           background: #e6efff;
+           font-family: "Gill Sans", sans-serif;
+       }
+   </style>
+    </head>
+<body>
+   <form method = "POST" action="{{ url_for('add_ship') }}">
+<H3 align="center">Введите данные о новом корабле </H3>
+<table align="center">
+<tr>
+<td>Название cудна </td>
+<td><input type="text" name="name" required placeholder="Введите текст"></td>
+</tr>
+<tr>
+<td>Страна судна</td>
+<td><select name="country">
+            {%- for country in countries %}
+               <option value="{{ country }}">{{ country }}</option>
+            {%- endfor %}
+         </select></td>
+</tr>
+<tr>
+<td>Год постройки</td>
+<td><input  type="text" name="year" required placeholder="Введите текст" ></td>
+</tr>
+ <tr>
+<td>Длина</td>
+<td><input  type="text" name="length" required placeholder="Введите текст" ></td>
+</tr><tr>
+<tr>
+<td>Ширина</td>
+<td><input  type="text" name="width" required placeholder="Введите текст" ></td>
+</tr><tr>
+<td>Описание</td>
+<td><input type="text" name="description" required placeholder="Введите текст" ></td>
+</tr>
+<tr>
+<td><input type="submit"  value="Отправить"  content="0 "></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
