@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import (
     request, flash, url_for, redirect, g, render_template)
-from libs.postres_db import get_db
+from libs.postgres_db import get_db
 from libs.ship import Ship
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ def result():
         result1 = request.form
         return render_template("ships_table_form.html", result=result1, ship_list=list1)
     else:
-        return render_template("ships_table_form.html", result=None, ship_list=list1)#
+        return render_template("ships_table_form.html", result=None, ship_list=list1)
 
 
 @app.route('/edit', methods=["GET", "POST"])
