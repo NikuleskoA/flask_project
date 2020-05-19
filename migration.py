@@ -3,7 +3,7 @@ import psycopg2
 import csv
 from settings import DB_URL
 
-con = psycopg2.connect(DB_URL)
+con = psycopg2.connect(dsn=DB_URL)
 cur = con.cursor()
 
 cur.execute("DROP TABLE IF EXISTS countries CASCADE")
