@@ -1,7 +1,9 @@
+import os
 from flask import g, current_app
 import psycopg2
 from libs.ship import Ship
 from settings import DB_URL
+DB_URL = os.environ.get("DB_URL", DB_URL)
 
 def get_db():
     if 'db' not in g:

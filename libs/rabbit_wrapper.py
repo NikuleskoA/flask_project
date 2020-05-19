@@ -1,7 +1,9 @@
+import os
 import threading
 import multiprocessing as mp
 import rabbitpy
 from settings import RABITMQ_URL
+RABITMQ_URL = os.environ.get('RABITMQ_URL', RABITMQ_URL)
 
 class RabbitQueue:
     def __init__(self, exchange_name, queue_name):
