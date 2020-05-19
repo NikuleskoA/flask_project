@@ -2,6 +2,7 @@ import os
 import psycopg2
 import csv
 from settings import DB_URL
+DB_URL = os.environ.get("DB_URL", DB_URL)
 
 con = psycopg2.connect(dsn=DB_URL)
 cur = con.cursor()
