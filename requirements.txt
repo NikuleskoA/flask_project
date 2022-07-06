@@ -3,7 +3,7 @@ gunicorn==20.0.4
 jedi==0.16.0
 Jinja2==2.11.1
 lazy-object-proxy==1.4.3
-lxml==4.5.0
+lxml==4.9.1
 psycopg2-binary==2.8.4
 pyparsing==2.4.6
 rabbitpy==2.0.1
